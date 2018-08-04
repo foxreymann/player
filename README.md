@@ -1,4 +1,10 @@
-# player
+# run test
+
+phpunit high-card.php
+
+# task
+
+## methods
 
 getAll()
 add(player, subarray, word)
