@@ -3,13 +3,11 @@
 require 'vendor/autoload.php';
 
 use PHPUnit\Framework\TestCase;
-
 require 'players.php';
 
 class Test extends TestCase {
 
   public function testTasksExample() {
-var_dump('FOX');
     $card_stack = [
     'Ace of Spades' => 11379,
     'King of Clubs' => 85561,
