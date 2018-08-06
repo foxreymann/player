@@ -24,7 +24,6 @@ class Test extends TestCase {
     // load class
     $players = new Players();
     // get all
-
     $this->assertEquals($players->get(), $this->samplePlayers);
   }
 
