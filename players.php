@@ -6,12 +6,13 @@ class Players {
   private $backupUri;
 
   public function __construct($dataUri) {
-echo 'construct';
     $this->dataUri = $dataUri;
     $this->backupUri = $dataUri . '.bak';
-var_dump($dataUri);
-var_dump($this->dataUri);
-    $this->players = unserialize(file_get_contents($this->dataUri));
+    try {
+      $this->players = unserialize(file_get_contents($this->dataUri));
+    } catch (Exception $e) {
+      $this->players = [];
+    }
   }
 
   public function get() {

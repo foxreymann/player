@@ -24,11 +24,13 @@ class Test extends TestCase {
   }
 
   protected function tearDown() {
-    unlink($this->dataUri);
+    try {
+      unlink($this->dataUri);
+    } catch (Exception $e) {
+    }
   }
 
   public function  testGetAll() {
-var_dump($this->dataUri);
     // store init data
     file_put_contents($this->dataUri, serialize($this->samplePlayers));
     // load class
