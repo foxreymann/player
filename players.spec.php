@@ -19,11 +19,11 @@ class Test extends TestCase {
   ];
 
   protected function setUp() {
-    // store init data
-    file_put_contents('./players.dat', serialize($this->samplePlayers));
   }
 
   public function  testGetAll() {
+    // store init data
+    file_put_contents('./players.dat', serialize($this->samplePlayers));
     // load class
     $players = new Players();
     // get all
