@@ -26,8 +26,7 @@ class Test extends TestCase {
   protected function tearDown() {
     try {
       unlink($this->dataUri);
-    } catch (Exception $e) {
-    }
+    } catch (Exception $e) {}
   }
 
   public function  testGetAll() {
@@ -44,5 +43,20 @@ class Test extends TestCase {
     $players = new Players($this->dataUri);
     // get all
     $this->assertEquals($players->get(), []);
+  }
+
+  public function testAddWordToEmptyData() {
+    // load class
+    $players = new Players($this->dataUri);
+    $players->add('p3', 'before', 'p3b1');
+    $expected = [
+      'p3' => [
+        'before' => ['p3b1']
+      ]
+    ];
+    $this->assertEquals($players->get(), $expected);
+  }
+
+  public function testSaveToPersistentStoreOnAdd() {
   }
 }

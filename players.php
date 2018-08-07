@@ -19,4 +19,20 @@ class Players {
     return $this->players;
   }
 
+  public function add($player, $itemGroup, $item) {
+    if(!array_key_exists($player, $this->players)) {
+      $this->players[$player] = [];
+    }
+
+    if(!array_key_exists($itemGroup, $this->players[$player])) {
+      $this->players[$player][$itemGroup] = [];
+    }
+
+    if(!in_array($item, $this->players[$player][$itemGroup])) {
+      $this->players[$player][$itemGroup][] = $item;
+    }
+
+var_dump($this->players);
+  }
+
 }

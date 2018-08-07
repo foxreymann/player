@@ -6,13 +6,11 @@ phpunit high-card.php
 
 ## methods
 
+new Players('./players.dat')
 getAll()
 add(player, subarray, word)
-deleteWord(player, subarray, word)
-deletePlayer(player)
-deleteSubarray(player, suarray)
+delete(player, subarray, word)
 save()
-load()
 
 yaml_emit_file
 yaml_parse_file
