@@ -13,6 +13,7 @@ class Players {
     } catch (Exception $e) {
       $this->players = [];
     }
+    $this->backup();
   }
 
   public function get() {
@@ -37,5 +38,24 @@ class Players {
     file_put_contents($this->dataUri, serialize($this->players));
   }
 
+  public function backup() {
+    file_put_contents($this->backupUri, serialize($this->players));
+  }
+
+  public function delete($player, $itemGroup = NULL, $item = NULL) {
+    if(NULL === $itemGroup) {
+      unset($this->players[$player]);
+      return;
+    }
+
+    if(NULL === $item) {
+      unset($this->players[$player][$itemGroup]);
+      return;
+    }
+
+    if (($key = array_search($item, $this->players[$player][$itemGroup])) !== false) {
+      unset($this->players[$player][$itemGroup][$key]);
+    }
+  }
 
 }
