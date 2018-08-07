@@ -1,3 +1,11 @@
+# how to use
+
+````
+<?php
+$players = new Players
+````
+
+
 # run test
 
 phpunit high-card.php

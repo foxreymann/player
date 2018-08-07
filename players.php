@@ -31,7 +31,6 @@ class Players {
     if(!in_array($item, $this->players[$player][$itemGroup])) {
       $this->players[$player][$itemGroup][] = $item;
     }
-var_dump($this->players);
   }
 
   public function save() {
