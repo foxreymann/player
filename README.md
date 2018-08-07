@@ -2,9 +2,22 @@
 
 ````
 <?php
-$players = new Players
-````
 
+require 'players.php';
+
+$players = new Players('./players.dat');
+
+var_dump($players->get());
+
+$players->add('Fox', 'before', "let's do it ąą");
+$players->add('Thura', 'before', "kung");
+$players->add('Thura', 'after', "fu");
+$players->add('Donald', 'before', "tweet tweet");
+
+var_dump($players->get());
+
+$players->save();
+````
 
 # run test
 
@@ -19,9 +32,6 @@ getAll()
 add(player, subarray, word)
 delete(player, subarray, word)
 save()
-
-yaml_emit_file
-yaml_parse_file
 
 ## questions
 
