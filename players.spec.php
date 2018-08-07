@@ -58,5 +58,13 @@ class Test extends TestCase {
   }
 
   public function testSaveToPersistentStoreOnAdd() {
+    // store init data
+    file_put_contents($this->dataUri, serialize($this->samplePlayers));
+    // load class
+    $players = new Players($this->dataUri);
+    $players->save();
+    unset($players);
+    $players = new Players($this->dataUri);
+    $this->assertEquals($players->get(), $this->samplePlayers);
   }
 }
